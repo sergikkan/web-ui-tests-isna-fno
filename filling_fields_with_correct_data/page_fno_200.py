@@ -1,0 +1,435 @@
+from locators.fno_200_locators import FNO200Locators
+from browser_interaction import BasePage
+import allure
+from time import sleep
+
+
+class FNO200Page(BasePage):
+    def __init__(self, browser):
+        super().__init__(browser)
+        self.browser = browser
+        self.locator = FNO200Locators
+
+    def first_page(self):
+        self.find_element(*self.locator.DECLARATION_TYPE).click()
+        sleep(0.3)
+        self.find_element(*self.locator.DECLARATION_TYPE_SELECT).click()
+        self.find_element(*self.locator.TAX_PERIOD).click()
+        sleep(0.3)
+        self.find_element(*self.locator.TAX_PERIOD_SELECT).click()
+        self.scroll('500')
+        self.find_element(*self.locator.APPS).click()
+        sleep(0.3)
+        self.find_element(*self.locator.APPS_SELECT_ALL).click()
+        self.scroll('500')
+        sleep(0.3)
+        self.find_element(*self.locator.RESIDENT).click()
+        sleep(0.3)
+        self.find_element(*self.locator.RESIDENT_SELECT).click()
+        sleep(0.3)
+        self.find_element(*self.locator.TAXPAYER_CATEGORY).click()
+        sleep(0.3)
+        self.find_element(*self.locator.TAXPAYER_CATEGORY_SELECT_A).click()
+        self.find_element(*self.locator.TAXPAYER_CATEGORY_SELECT_B).click()
+        self.find_element(*self.locator.TAXPAYER_CATEGORY_SELECT_C).click()
+        self.find_element(*self.locator.TAXPAYER_CATEGORY_SELECT_E).click()
+        sleep(0.3)
+        self.find_element(*self.locator.FIRST_PAGE_I_MONTH).send_keys('123')
+        self.find_element(*self.locator.FIRST_PAGE_II_MONTH).send_keys('456')
+        self.find_element(*self.locator.FIRST_PAGE_III_MONTH).send_keys('789')
+        self.find_element(*self.locator.CONFIRMATION_FIRST_PAGE_2).click()
+        self.find_element(*self.locator.FIRST_PAGE_IV_MONTH).send_keys('123')
+        self.find_element(*self.locator.FIRST_PAGE_V_MONTH).send_keys('456')
+        self.find_element(*self.locator.FIRST_PAGE_VI_MONTH).send_keys('789')
+        self.find_element(*self.locator.CONTROL_TEXT).click()
+        sleep(0.3)
+        self.find_element(*self.locator.CONFIRMATION_FIRST_PAGE_1).click()
+        self.find_element(*self.locator.AFTER).click()
+
+    def app_1(self):
+        self.scroll('400')
+        # Раздел. Индивидуальный подоходный налог 200.01.001 Начисленные доходы
+        self.find_element(*self.locator.APP_1_FIELD_1_I_MONTH).send_keys('222')
+        self.find_element(*self.locator.APP_1_FIELD_1_II_MONTH).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_1_III_MONTH).send_keys('222')
+        self.find_element(*self.locator.APP_1_FIELD_1_A).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_1_B).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_1_C).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_1_D).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_1_E).send_keys('111')
+        self.scroll('600')
+        self.find_element(*self.locator.APP_1_FIELD_3_I_MONTH).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_3_II_MONTH).send_keys('222')
+        self.find_element(*self.locator.APP_1_FIELD_3_III_MONTH).send_keys('333')
+        self.find_element(*self.locator.APP_1_FIELD_4).send_keys('444')
+        self.find_element(*self.locator.APP_1_FIELD_5).send_keys('555')
+        self.find_element(*self.locator.APP_1_FIELD_6).send_keys('666')
+        self.scroll('600')
+        self.find_element(*self.locator.APP_1_FIELD_7_I_MONTH).send_keys('777')
+        self.find_element(*self.locator.APP_1_FIELD_7_II_MONTH).send_keys('888')
+        self.find_element(*self.locator.APP_1_FIELD_7_III_MONTH).send_keys('999')
+        sleep(0.3)
+        assert '2664' in self.browser.page_source
+
+        self.find_element(*self.locator.APP_1_FIELD_8_I_MONTH).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_8_II_MONTH).send_keys('222')
+        self.find_element(*self.locator.APP_1_FIELD_8_III_MONTH).send_keys('333')
+        sleep(0.3)
+        assert '666' in self.browser.page_source
+
+        self.scroll('500')
+
+        self.find_element(*self.locator.APP_1_FIELD_9_I_MONTH).send_keys('444')
+        self.find_element(*self.locator.APP_1_FIELD_9_II_MONTH).send_keys('555')
+        self.find_element(*self.locator.APP_1_FIELD_9_III_MONTH).send_keys('666')
+        sleep(0.3)
+        assert '1665' in self.browser.page_source
+
+        self.find_element(*self.locator.APP_1_FIELD_10_I_MONTH).send_keys('777')
+        self.find_element(*self.locator.APP_1_FIELD_10_II_MONTH).send_keys('888')
+        self.find_element(*self.locator.APP_1_FIELD_10_III_MONTH).send_keys('999')
+        sleep(0.3)
+        assert '2664' in self.browser.page_source
+
+        self.find_element(*self.locator.APP_1_FIELD_11_I_MONTH).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_11_II_MONTH).send_keys('222')
+        self.find_element(*self.locator.APP_1_FIELD_11_III_MONTH).send_keys('333')
+        sleep(0.3)
+        assert '666' in self.browser.page_source
+
+        self.scroll('600')
+
+        self.find_element(*self.locator.APP_1_FIELD_12_I_MONTH).send_keys('444')
+        self.find_element(*self.locator.APP_1_FIELD_12_II_MONTH).send_keys('555')
+        self.find_element(*self.locator.APP_1_FIELD_12_III_MONTH).send_keys('666')
+        sleep(0.3)
+        assert '1665' in self.browser.page_source
+
+        self.find_element(*self.locator.APP_1_FIELD_13_I_MONTH).send_keys('777')
+        self.find_element(*self.locator.APP_1_FIELD_13_II_MONTH).send_keys('888')
+        self.find_element(*self.locator.APP_1_FIELD_13_III_MONTH).send_keys('999')
+        sleep(0.3)
+
+        self.find_element(*self.locator.APP_1_FIELD_14_I_MONTH).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_14_II_MONTH).send_keys('222')
+        self.find_element(*self.locator.APP_1_FIELD_14_III_MONTH).send_keys('33')
+        sleep(0.3)
+
+        self.scroll('600')
+
+        self.find_element(*self.locator.APP_1_FIELD_15_I_MONTH).send_keys('444')
+        self.find_element(*self.locator.APP_1_FIELD_15_II_MONTH).send_keys('555')
+        self.find_element(*self.locator.APP_1_FIELD_15_III_MONTH).send_keys('66')
+        sleep(0.3)
+
+        self.find_element(*self.locator.APP_1_FIELD_16_I_MONTH).send_keys('777')
+        self.find_element(*self.locator.APP_1_FIELD_16_II_MONTH).send_keys('888')
+        self.find_element(*self.locator.APP_1_FIELD_16_III_MONTH).send_keys('999')
+        sleep(0.3)
+        assert '2664' in self.browser.page_source
+
+        self.scroll('500')
+
+        self.find_element(*self.locator.APP_1_FIELD_17_I_MONTH).send_keys('111')
+        self.find_element(*self.locator.APP_1_FIELD_17_II_MONTH).send_keys('222')
+        self.find_element(*self.locator.APP_1_FIELD_17_III_MONTH).send_keys('333')
+        sleep(0.3)
+        assert '666' in self.browser.page_source
+
+        self.find_element(*self.locator.APP_1_FIELD_18_I_MONTH).send_keys('444')
+        self.find_element(*self.locator.APP_1_FIELD_18_II_MONTH).send_keys('555')
+        self.find_element(*self.locator.APP_1_FIELD_18_III_MONTH).send_keys('666')
+        sleep(0.3)
+        assert '1665' in self.browser.page_source
+        self.scroll('600')
+
+        self.find_element(*self.locator.APP_1_FIELD_19_I_MONTH).send_keys('777')
+        self.find_element(*self.locator.APP_1_FIELD_19_II_MONTH).send_keys('888')
+        self.find_element(*self.locator.APP_1_FIELD_19_III_MONTH).send_keys('999')
+        sleep(0.3)
+        assert '2664' in self.browser.page_source
+
+        self.find_element(*self.locator.APP_1_FIELD_20_I_MONTH).send_keys('777')
+        self.find_element(*self.locator.APP_1_FIELD_20_II_MONTH).send_keys('888')
+        self.find_element(*self.locator.APP_1_FIELD_20_III_MONTH).send_keys('999')
+        sleep(0.3)
+        assert '2664' in self.browser.page_source
+        self.scroll('600')
+
+        self.find_element(*self.locator.AFTER).click()
+
+    def app_2(self):
+        self.scroll('500')
+        self.find_element(*self.locator.ADD_STR).click()
+        sleep(0.3)
+        self.find_element(*self.locator.SECOND_APP_C).send_keys('010815501417')
+        self.find_element(*self.locator.SECOND_APP_D).click()
+        sleep(0.3)
+        self.find_element(*self.locator.SECOND_APP_D_SELECT).click()
+        sleep(0.5)
+        #self.find_element(*self.locator.SECOND_APP_E).click()
+        sleep(0.5)
+        #self.find_element(*self.locator.SECOND_APP_E_SELECT).click()
+        self.find_element(*self.locator.SECOND_APP_F).send_keys('111111111111111111')
+        self.find_element(*self.locator.SECOND_APP_G_1).click()
+        sleep(0.3)
+        self.find_element(*self.locator.SECOND_APP_G_1_SELECT).click()
+        self.find_element(*self.locator.SECOND_APP_G_2).send_keys('213')
+        self.find_element(*self.locator.SECOND_APP_G_3).click()
+        sleep(0.3)
+        self.find_element(*self.locator.SECOND_APP_G_3_SELECT).click()
+        self.find_element(*self.locator.SECOND_APP_I).click()
+        sleep(0.3)
+        self.find_element(*self.locator.SECOND_APP_I_SELECT).click()
+        element = self.browser.find_element_by_xpath('//*[@name="T"]')
+        self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
+        self.find_element(*self.locator.SECOND_APP_H).click()
+        sleep(0.3)
+        self.find_element(*self.locator.SECOND_APP_H_SELECT).click()
+        self.find_element(*self.locator.SECOND_APP_K).click()
+        sleep(0.3)
+        self.find_element(*self.locator.SECOND_APP_K_SELECT).click()
+        self.find_element(*self.locator.SECOND_APP_L).click()
+        self.find_element(*self.locator.SECOND_APP_M).click()
+        self.find_element(*self.locator.SECOND_APP_N).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_O).send_keys('1230000')
+        self.find_element(*self.locator.SECOND_APP_P).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_Q).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_R).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_S).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_T).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_U).send_keys('123')
+        element = self.browser.find_element_by_xpath('//*[text()="Добавить"]')
+        self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
+        self.find_element(*self.locator.SECOND_APP_V).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_W).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_X).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_Y).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_Z).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_AA).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_AC).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_AD).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_AE).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_AF).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_AG).send_keys('123')
+        self.find_element(*self.locator.SECOND_APP_AI).send_keys('123')
+        self.find_element(*self.locator.ADD).click()
+        self.find_element(*self.locator.AFTER).click()
+
+    def app_3(self):
+        self.find_element(*self.locator.BIN).send_keys('010815501417')
+        self.find_element(*self.locator.NAME_OF_FILIAL).send_keys('Aa/][/1')
+        sleep(0.3)
+        assert 'Aa/][/1' in self.browser.page_source
+        self.scroll('500')
+        self.find_element(*self.locator.TYPE_OF_TAX).click()
+        sleep(0.3)
+        self.find_element(*self.locator.TYPE_OF_TAX_SELECT).click()
+        self.find_element(*self.locator.CONTROL_TEXT).click()
+        sleep(0.2)
+        self.find_element(*self.locator.CODE_1).click()
+        sleep(0.3)
+        self.find_element(*self.locator.CODE_1_SELECT).click()
+        self.find_element(*self.locator.CODE_2).click()
+        sleep(0.3)
+        #self.find_element(*self.locator.CODE_2_SELECT).click()
+        self.find_element(*self.locator.WORKERS_1).send_keys('1')
+        self.find_element(*self.locator.WORKERS_2).send_keys('1')
+        self.find_element(*self.locator.WORKERS_3).send_keys('0')
+        sleep(0.3)
+        assert 'Количество сотрудников должно быть равно количеству сотрудников из приложений 200.02 и 200.5' in self.browser.page_source
+        self.scroll('700')
+        self.find_element(*self.locator.THIRD_APP_1_I_MONTH).send_keys('1')
+        self.find_element(*self.locator.THIRD_APP_1_II_MONTH).send_keys('3')
+        self.find_element(*self.locator.THIRD_APP_1_III_MONTH).send_keys('5')
+        sleep(0.3)
+        assert '9' in self.browser.page_source
+        self.find_element(*self.locator.THIRD_APP_2_I_MONTH).send_keys('2')
+        self.find_element(*self.locator.THIRD_APP_2_II_MONTH).send_keys('4')
+        self.find_element(*self.locator.THIRD_APP_2_III_MONTH).send_keys('6')
+        assert '12' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.THIRD_APP_3_I_MONTH).send_keys('1')
+        self.find_element(*self.locator.THIRD_APP_3_II_MONTH).send_keys('3')
+        self.find_element(*self.locator.THIRD_APP_3_III_MONTH).send_keys('5')
+        sleep(0.3)
+        assert '9' in self.browser.page_source
+        self.find_element(*self.locator.THIRD_APP_4_I_MONTH).send_keys('2')
+        self.find_element(*self.locator.THIRD_APP_4_II_MONTH).send_keys('4')
+        self.find_element(*self.locator.THIRD_APP_4_III_MONTH).send_keys('6')
+        assert '12' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.THIRD_APP_5_I_MONTH).send_keys('1')
+        self.find_element(*self.locator.THIRD_APP_5_II_MONTH).send_keys('3')
+        self.find_element(*self.locator.THIRD_APP_5_III_MONTH).send_keys('5')
+        sleep(0.3)
+        assert '9' in self.browser.page_source
+        self.find_element(*self.locator.THIRD_APP_6_I_MONTH).send_keys('2')
+        self.find_element(*self.locator.THIRD_APP_6_II_MONTH).send_keys('4')
+        self.find_element(*self.locator.THIRD_APP_6_III_MONTH).send_keys('6')
+        assert '12' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.THIRD_APP_7_I_MONTH).send_keys('1')
+        self.find_element(*self.locator.THIRD_APP_7_II_MONTH).send_keys('3')
+        self.find_element(*self.locator.THIRD_APP_7_III_MONTH).send_keys('5')
+        sleep(0.3)
+        assert '9' in self.browser.page_source
+        self.find_element(*self.locator.THIRD_APP_8_I_MONTH).send_keys('2')
+        self.find_element(*self.locator.THIRD_APP_8_II_MONTH).send_keys('4')
+        self.find_element(*self.locator.THIRD_APP_8_III_MONTH).send_keys('6')
+        assert '12' in self.browser.page_source
+        self.scroll('500')
+        #self.find_element(*self.locator.CODE_3).click()
+        sleep(0.3)
+        #self.find_element(*self.locator.CODE_3_SELECT).click()
+        #self.find_element(*self.locator.CODE_4).click()
+        sleep(0.3)
+        #self.find_element(*self.locator.CODE_4_SELECT).click()
+        sleep(5)
+        self.find_element(*self.locator.CONFIRMATION_2).click()
+        self.find_element(*self.locator.AFTER).click()
+
+    def app_4(self):
+        self.scroll('400')
+        self.find_element(*self.locator.NUMBER_OF_CONTRACT).send_keys('1234567890')
+        self.find_element(*self.locator.DATE_OF_CONTRACT).click()
+        sleep(0.3)
+        self.find_element(*self.locator.DATE_OF_CONTRACT_SELECT).click()
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_1_I).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_1_II).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_1_III).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_2_I).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_2_II).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_2_III).send_keys('1234567890')
+        self.scroll('500')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_3_I).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_3_II).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_3_III).send_keys('1234567890')
+
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_4_I).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_4_II).send_keys('1234567890')
+        self.find_element(*self.locator.EMPLOYEES_NUMBER_4_III).send_keys('1234567890')
+
+        self.find_element(*self.locator.TAX_PERCENT_1).send_keys('12')
+        self.find_element(*self.locator.TAX_PERCENT_2).send_keys('34')
+        self.find_element(*self.locator.TAX_PERCENT_3).send_keys('56')
+        sleep(0.3)
+        assert '3703703670' in self.browser.page_source
+        self.scroll('500')
+        sleep(0.3)
+        assert '1259259248' in self.browser.page_source
+        assert '148148147' in self.browser.page_source
+        assert '419753083' in self.browser.page_source
+        assert '691358018' in self.browser.page_source
+        self.find_element(*self.locator.AFTER).click()
+
+    def app_5(self):
+        self.scroll('500')
+        self.find_element(*self.locator.ADD_STR).click()
+        sleep(0.3)
+        self.find_element(*self.locator.FIFTH_APP_C).send_keys('111111111111')
+        self.find_element(*self.locator.FIFTH_APP_B).send_keys('Тест Тест')
+        sleep(0.3)
+        #assert 'тест тест' in self.browser.page_source
+        self.find_element(*self.locator.FIFTH_APP_D).click()
+        sleep(0.3)
+        self.find_element(*self.locator.FIFTH_APP_D_SELECT).click()
+        self.find_element(*self.locator.FIFTH_APP_E).click()
+        sleep(0.3)
+        self.find_element(*self.locator.FIFTH_APP_E_SELECT).click()
+        self.find_element(*self.locator.FIFTH_APP_G).send_keys('2')
+        self.find_element(*self.locator.FIFTH_APP_H).send_keys('3')
+        self.find_element(*self.locator.FIFTH_APP_I).send_keys('4')
+        self.find_element(*self.locator.FIFTH_APP_J).send_keys('5')
+        self.find_element(*self.locator.FIFTH_APP_K).send_keys('6')
+        self.find_element(*self.locator.FIFTH_APP_L).send_keys('7')
+        self.find_element(*self.locator.FIFTH_APP_M).send_keys('8')
+        self.find_element(*self.locator.FIFTH_APP_N).send_keys('9')
+        self.find_element(*self.locator.FIFTH_APP_O).send_keys('10')
+        element = self.browser.find_element_by_xpath('//*[text()="Добавить"]')
+        self.browser.execute_script("arguments[0].scrollIntoView(true);", element)
+        self.find_element(*self.locator.FIFTH_APP_P).send_keys('5')
+        self.find_element(*self.locator.FIFTH_APP_Q).send_keys('6')
+        self.find_element(*self.locator.FIFTH_APP_R).send_keys('7')
+        self.find_element(*self.locator.FIFTH_APP_S).send_keys('8')
+        self.find_element(*self.locator.FIFTH_APP_T).send_keys('9')
+        self.find_element(*self.locator.FIFTH_APP_U).send_keys('10')
+        self.find_element(*self.locator.ADD).click()
+        self.find_element(*self.locator.AFTER).click()
+
+    def seventh_page(self):
+        self.scroll('300')
+        self.find_element(*self.locator.SEVENTH_PAGE_1_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_1_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_1_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.find_element(*self.locator.SEVENTH_PAGE_2_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_2_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_2_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.SEVENTH_PAGE_3_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_3_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_3_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.find_element(*self.locator.SEVENTH_PAGE_4_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_4_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_4_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.SEVENTH_PAGE_5_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_5_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_5_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.find_element(*self.locator.SEVENTH_PAGE_6_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_6_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_6_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.SEVENTH_PAGE_7_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_7_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_7_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.find_element(*self.locator.SEVENTH_PAGE_8_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_8_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_8_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.SEVENTH_PAGE_9_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_9_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_9_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.find_element(*self.locator.SEVENTH_PAGE_10_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_10_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_10_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.SEVENTH_PAGE_11_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_11_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_11_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.find_element(*self.locator.SEVENTH_PAGE_12_I).send_keys('10')
+        self.find_element(*self.locator.SEVENTH_PAGE_12_II).send_keys('20')
+        self.find_element(*self.locator.SEVENTH_PAGE_12_III).send_keys('30')
+        sleep(0.3)
+        assert '60' in self.browser.page_source
+        self.scroll('400')
+        self.find_element(*self.locator.AFTER).click()
+
+    def end_page(self):
+        self.scroll('500')
+        self.find_element(*self.locator.CONFIRMATION_3).click()
+        sleep(50)
+        self.find_element(*self.locator.FORM_DECLARATION).click()
+        sleep(5)
